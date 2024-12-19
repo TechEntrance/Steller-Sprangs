@@ -1,0 +1,586 @@
+/* Add CSS variables at the top, matching styles.css */
+:root {
+    --brand-color: #0E459A;
+    --brand-color: #050a30;
+    --yellow-color: #FBDE4D;
+    --body-color: #e9faff;
+}
+
+.hero-section {
+    padding: 60px 20px;
+    background: none;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--brand-color);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content h1 {
+    font-size: 42px;
+    color: var(--brand-color);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.text-content .quote {
+    font-style: italic;
+    color: #666;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--brand-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    color: var(--brand-color);
+    border: 2px solid var(--brand-color);
+}
+
+.read-more-btn:hover {
+    background-color: var(--brand-color);
+}
+
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-content img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 60px 40px 60px 10px;
+    object-fit: cover;
+}
+
+.steps-section {
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.steps-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    position: relative;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.steps-section h2 .blue-text {
+    color: var(--brand-color);
+}
+
+.steps-section h2 .black-text {
+    color: #000;
+}
+
+.steps-section h2::before,
+.steps-section h2::after {
+    content: none;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.step-box {
+    background-color: #ffffff;
+    border: 2px solid #d633ff;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step-box:nth-child(1) {
+    border-radius: 0px 50px 0 50px;
+}
+
+.step-box:nth-child(2) {
+    border-radius:0px 50px 0 0px;
+}
+
+.step-box:nth-child(3) {
+    border-radius: 0 10px 0px 50px;
+}
+
+.step-box h3 {
+    font-size: 24px;
+    color: var(--brand-color);
+    margin-bottom: 10px;
+}
+
+.step-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.step-box p {
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.what-we-do-section {
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.what-we-do-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.what-we-do-section h2 span:first-child {
+    color: var(--brand-color);
+}
+
+.what-we-do-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.do-box {
+    background-color: #ffffff;
+    border: 2px solid #ffd700;
+    padding: 30px;
+    text-align: center;
+    width: 30%;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.do-box:nth-child(1) {
+    border-radius: 0 50px 0 50px;
+}
+
+.do-box:nth-child(2) {
+    border-radius: 50px 0 50px 0;
+}
+
+.do-box .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    color: #00ff9d;
+}
+
+.do-box h3 {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.do-box p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.quote-box {
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+}
+
+.quote-box p {
+    font-size: 24px;
+    line-height: 1.4;
+    color: #000;
+    font-weight: 500;
+}
+
+.benefits-section {
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.benefits-section h2 {
+    text-align: center;
+    font-size: 32px;
+    color: var(--brand-color);
+    margin-bottom: 40px;
+}
+
+.down-arrow {
+    color: #000;
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.benefit-box {
+    background-color: #f0f0f0;
+    padding: 30px;
+    text-align: center;
+    width: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.benefit-box p {
+    font-size: 16px;
+    color: #000;
+    margin: 0;
+}
+
+.arrow {
+    color: #000;
+    font-size: 24px;
+}
+
+.full-service-section {
+    display: flex;
+    padding: 4rem 8%;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.service-content {
+    flex: 1;
+}
+
+.service-image {
+    flex: 0 0 40%;
+}
+
+.service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.full-service-section h2 {
+    color: var(--brand-color);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.full-service-section h3 {
+    color: var(--brand-color);
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+}
+
+.full-service-section p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.contact-prompt {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact-prompt p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.contact-prompt a {
+    color: var(--brand-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lets-talk-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--brand-color);
+    color: #ffffff !important;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    line-height: 1.3;
+    padding: 10px;
+    word-break: break-word;
+    white-space: pre-line;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.lets-talk-btn:hover,
+.lets-talk-btn:focus,
+.lets-talk-btn:active {
+    background-color: #1a3566;
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+/* Ensure text remains visible on mobile */
+@media (max-width: 768px) {
+    .lets-talk-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content,
+    .solution-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-section .content, .hero-image {
+        max-width: 100%;
+    }
+
+    .steps-container, .benefits-container, .what-we-do-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-box, .benefit-box, .do-box, .quote-box {
+        width: 80%;
+    }
+
+    .benefits-container {
+        flex-direction: column;
+    }
+    
+    .benefit-box {
+        width: 80%;
+    }
+    
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+    .full-service-section {
+        flex-direction: column-reverse;
+        padding: 2rem 5%;
+    }
+
+    .service-image {
+        width: 100%;
+    }
+
+    .contact-prompt {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 28px;
+    }
+
+    .text-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-section p, .full-service-section p {
+        font-size: 16px;
+    }
+
+    .steps-section h2, .benefits-section h2, .full-service-section h2, .what-we-do-section h2 {
+        font-size: 28px;
+    }
+
+    .step-box h3, .benefit-box p, .do-box h3, .quote-box p {
+        font-size: 18px;
+    }
+
+    .benefits-section h2 {
+        font-size: 28px;
+    }
+    
+    .benefit-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .hero-content {
+        padding: 0 20px;
+        gap: 30px;
+    }
+
+    .text-content h1 {
+        font-size: 36px;
+    }
+
+    .image-content img {
+        max-width: 450px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero-section {
+        padding: 40px 15px;
+    }
+
+    .text-content h1 {
+        font-size: 32px;
+    }
+
+    .text-content p {
+        font-size: 16px;
+    }
+
+    .image-content img {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding: 30px 15px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .text-content {
+        order: 1;
+    }
+
+    .image-content {
+        order: 2;
+    }
+
+    .image-content img {
+        max-width: 100%;
+        width: 80%;
+    }
+
+    .read-more-btn {
+        padding: 10px 25px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-section {
+        padding: 20px 10px;
+    }
+
+    .text-content h1 {
+        font-size: 28px;
+    }
+
+    .text-content p {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .image-content img {
+        width: 90%;
+        border-radius: 40px 30px 40px 10px;
+    }
+
+    .read-more-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 320px) {
+    .text-content h1 {
+        font-size: 24px;
+    }
+
+    .text-content p {
+        font-size: 14px;
+    }
+
+    .image-content img {
+        width: 95%;
+        border-radius: 30px 20px 30px 10px;
+    }
+}
+
+/* For high-resolution displays */
+@media screen and (min-width: 1400px) {
+    .hero-content {
+        max-width: 1400px;
+    }
+
+    .text-content h1 {
+        font-size: 48px;
+    }
+
+    .text-content p {
+        font-size: 20px;
+    }
+
+    .image-content img {
+        max-width: 450px;
+    }
+}

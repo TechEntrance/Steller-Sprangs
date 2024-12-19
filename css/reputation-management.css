@@ -1,0 +1,288 @@
+/* Main Styles */
+:root {
+    --brand-color: #0E459A;
+    --brand-color: #050a30;
+    --yellow-color: #FBDE4D;
+    --body-color: #ffffff;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 60px 20px;
+    background-color: var(--body-color);
+    background: none;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content h1 {
+    font-size: 42px;
+    color: var(--brand-color);
+    margin-bottom: 20px;
+}
+
+.text-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.quote {
+    font-style: italic;
+    color: #666;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--brand-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.image-content {
+    flex: 1;
+
+}
+
+.image-content img {
+    width: 85%;
+    max-width: 440px;
+    border-radius: 60px 40px 60px 10px;
+}
+
+/* How We Work Section */
+.how-we-work {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.how-we-work h2 {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--brand-color);
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    padding: 2rem;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.step-card:nth-child(1) {
+    border-left: 3px solid #ff69b4;
+}
+
+.step-card:nth-child(2) {
+    border-left: 3px solid #800080;
+}
+
+.step-card:nth-child(3) {
+    border-left: 3px solid #4B0082;
+}
+
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.step-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.step-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* What We Do Section */
+.what-we-do {
+    padding: 60px 20px;
+    background-color: var(--body-color);
+}
+
+.what-we-do h2 {
+    text-align: center;
+    color: var(--brand-color);
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.service-card img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.quote-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding: 20px;
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.benefits h2 {
+    text-align: center;
+    color: var(--brand-color);
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.benefits-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.benefit-card img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+/* Solutions Section */
+.solutions {
+    padding: 60px 20px;
+    background-color: var(--body-color);
+}
+
+.solution-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.solution-content img {
+    width: 85%;
+    max-width: 440px;
+    border-radius: 60px 40px 60px 10px;
+}
+
+/* Contact CTA */
+.contact-cta {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.contact-cta h2 {
+    color: var(--brand-color);
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--brand-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content,
+    .solution-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .services-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .text-content h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-content h1 {
+        font-size: 28px;
+    }
+
+    .step-card,
+    .service-card {
+        padding: 20px;
+    }
+
+    .contact-cta h2 {
+        font-size: 28px;
+    }
+}

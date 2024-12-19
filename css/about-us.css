@@ -1,0 +1,747 @@
+/* Add CSS variables at the top, matching styles.css */
+:root {
+    --brand-color: #0E459A;
+    --brand-color: #050a30;
+    --yellow-color: #FBDE4D;
+    --body-color: #e9faff;
+
+    --accent-blue: #1A73E8;
+    --accent-blue: #050a30;
+}
+
+/* About Hero Section */
+.about-hero {
+    display: flex;
+    padding: 60px 80px;
+    gap: 50px;
+    background-color: #fff;
+    align-items: center;
+}
+
+.about-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-content h2 {
+    color: var(--accent-blue);
+    font-size: 24px;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0E459A;
+}
+
+.hero-main h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-main h1:first-child {
+    margin-bottom: 10px;
+}
+
+.get-in-touch {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--accent-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.get-in-touch:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Creative Solution Section */
+.creative-solution {
+    padding: 60px 80px;
+    text-align: center;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+.creative-solution h3 {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.solution-slider {
+    position: relative;
+}
+
+.solution-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.5s ease; /* Smooth transition for sliding effect */
+}
+
+.solution-card {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.solution-card h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.solution-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #0E459A;
+    transform: scale(1.2);
+}
+
+/* Vision Mission Section */
+.vision-mission {
+    padding: 80px 40px;
+    background-color: #f8f9fa;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vision, .mission {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 60px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.vision-content, .mission-content {
+    flex: 1;
+}
+
+.vision h3, .mission h3, .goals h3 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #0E459A;
+    border-radius: 2px;
+}
+
+.vision p, .mission p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.vision-image, .mission-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.vision-image img, .mission-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.vision-image img:hover, .mission-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Goals Section */
+.goals {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.goals-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.goals-text {
+    flex: 1;
+}
+
+.goals-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.goals-points {
+    flex: 1;
+}
+
+.goals-points ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.goals-points li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.goals-points li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #0E459A;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Team Section */
+.team-section {
+    padding: 80px;
+    background-color: #ffffff;
+}
+
+.team-section h2 {
+    color: var(--accent-blue);
+    font-size: 32px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.team-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../contents/icons/team-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.team-categories {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    max-width: 1200px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-inline: 50px;
+}
+
+.category-item p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.number-box {
+    width: 100px;
+    height: 100px;
+    background-color: #FFCE00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.number-box:hover {
+    transform: scale(1.1) translateY(-5px);
+    background-color: #FFD700;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.member-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .team-categories {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .team-categories {
+        display: none;
+    }
+    
+    .vision, .mission {
+        flex-direction: column;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .expertise-categories {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: 20px;
+    }
+
+    .hero-main h1 {
+        font-size: 36px;
+    }
+
+    .solution-cards {
+        padding: 0 20px;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Add/Update these responsive styles */
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+    .about-hero {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .solution-cards {
+        gap: 40px;
+    }
+}
+
+/* Medium-Large screens (992px to 1199px) */
+@media (max-width: 1199px) {
+    .about-hero {
+        padding: 40px 60px;
+    }
+
+    .hero-main h1 {
+        font-size: 42px;
+    }
+
+    .solution-cards {
+        gap: 25px;
+    }
+
+    .solution-card {
+        padding: 30px 20px;
+    }
+}
+
+/* Medium screens (768px to 991px) */
+@media (max-width: 991px) {
+    .about-hero {
+        padding: 30px 40px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+    .about-content h2 {
+        margin: 0 auto 30px;
+    }
+
+    .about-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero-image {
+        margin-top: 30px;
+        width: 80%;
+    }
+
+    .creative-solution {
+        padding: 40px;
+    }
+
+    .solution-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .solution-card {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Small screens (576px to 767px) */
+@media (max-width: 767px) {
+    .about-hero {
+        padding: 20px;
+    }
+
+    .hero-main h1 {
+        font-size: 36px;
+    }
+
+    .hero-main p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .get-in-touch {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    .creative-solution {
+        padding: 30px 20px;
+    }
+
+    .solution-card {
+        padding: 25px 20px;
+    }
+
+    .card-icon {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .solution-card h4 {
+        font-size: 18px;
+    }
+
+    .solution-card p {
+        font-size: 14px;
+    }
+}
+
+/* Extra small screens (575px and below) */
+@media (max-width: 575px) {
+    .about-hero {
+        padding: 20px 15px;
+    }
+
+    .hero-main h1 {
+        font-size: 32px;
+    }
+
+    .hero-main p {
+        font-size: 14px;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .creative-solution {
+        padding: 20px 15px;
+    }
+
+    .solution-card {
+        margin: 0;
+        padding: 20px 15px;
+    }
+
+    .card-icon {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Landscape mode adjustments */
+@media (max-width: 991px) and (orientation: landscape) {
+    .about-hero {
+        flex-direction: row;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .hero-image {
+        width: 50%;
+        margin-top: 0;
+    }
+
+    .solution-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .solution-card {
+        width: calc(50% - 15px);
+    }
+}
+
+/* Height-based media query for smaller screens */
+@media (max-height: 700px) {
+    .about-hero {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .hero-main h1 {
+        margin-bottom: 10px;
+    }
+
+    .hero-main p {
+        margin-bottom: 15px;
+    }
+}
+
+/* Animation for hover effects */
+.vision, .mission, .goals {
+    transition: transform 0.3s ease;
+}
+
+.vision:hover, .mission:hover, .goals:hover {
+    transform: translateY(-5px);
+}
+
+/* Add smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Update responsive styles for Goals section */
+@media (max-width: 991px) {
+    .goals {
+        padding: 30px;
+    }
+
+    .goals-content {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .goals-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .goals {
+        padding: 25px;
+    }
+
+    .goals h3 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .goals-text p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .goals {
+        padding: 20px;
+    }
+
+    .goals h3 {
+        font-size: 24px;
+    }
+
+    .goals-points ul {
+        grid-template-columns: 1fr;
+    }
+
+    .goals-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .goals-points li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 40px; /* Reduced padding for medium screens */
+    }
+}
+
+/* Add a keyframe animation for initial appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+/* Apply the animation to the number boxes */
+.category-item {
+    animation: fadeIn 0.5s ease forwards; /* Apply fade-in animation */
+    opacity: 0; /* Start hidden for animation */
+    animation-delay: 0.2s; /* Delay for staggered effect */
+}
+
+/* Adjust styles for category items to stack number boxes and team members */
+.category-item {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    margin-bottom: 40px; /* Space between each category */
+}
+
+/* Adjust the margin for the paragraph tag to reduce the gap */
+.category-item p {
+    margin-top: 15px; /* Decrease the gap between the number box and the paragraph */
+    font-size: 16px; /* Optional: Adjust font size if needed */
+}
+
+/* Ensure team member cards are centered below the number boxes */
+.team-member {
+    text-align: center; /* Center text for team members */
+}
+
