@@ -1638,4 +1638,18 @@ footer {
     background-color: white; /* color when menu is open */
 }
 
+.contact-us ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-us ul li a:hover {
+    opacity: 0.8;
+}
+
+.contact-us ul li a:visited {
+    color: #fff;
+}
+
 

@@ -4,27 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steller Sprangs Landing Page</title>
+    <title>Steller Sprangs - Digital Marketing & PR Agency in Lucknow | Brand Management</title>
+    <meta name="description" content="Steller Sprangs is a leading digital marketing and PR agency in Lucknow. We specialize in brand management, influencer marketing, reputation management, and crisis management services.">
+    <meta name="keywords" content="digital marketing agency, PR agency, brand management, influencer marketing, reputation management, crisis management, Lucknow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Steller Sprangs - Digital Marketing & PR Agency">
+    <meta property="og:description" content="Empowering Voices, Igniting Impact - We craft strategies that amplify your story and build lasting connections.">
+    <meta property="og:image" content="./contents/steller_sprangs_logo2.png">
+    <meta property="og:url" content="https://stellersprangs.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Steller Sprangs - Digital Marketing & PR Agency">
+    <meta name="twitter:description" content="Empowering Voices, Igniting Impact - We craft strategies that amplify your story and build lasting connections.">
+    <meta name="twitter:image" content="./contents/steller_sprangs_logo2.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://stellersprangs.com">
+    
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="Steller Sprangs">
+    <meta name="geo.region" content="IN-UP">
+    <meta name="geo.placename" content="Lucknow">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Steller Sprangs",
+      "description": "Digital Marketing and PR Agency specializing in brand management and strategic communications",
+      "url": "https://stellersprangs.com",
+      "logo": "./contents/steller_sprangs_logo2.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "655A/4/936, Gayatri Puram, Kursi Road",
+        "addressLocality": "Lucknow",
+        "addressRegion": "UP",
+        "postalCode": "226022",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-8557864920",
+        "contactType": "customer service",
+        "email": "support.brand@stellersprangs.com"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61556346120114",
+        "https://www.instagram.com/steller_sprangs",
+        "https://www.linkedin.com/company/steller-sprangs/"
+      ]
+    }
+    </script>
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <img src="./contents/steller_sprangs_logo2.png" alt="Steller Sprangs Logo">
+        <div class="logo" aria-label="Steller Sprangs Logo">
+            <img src="./contents/steller_sprangs_logo2.png" alt="Steller Sprangs - Digital Marketing & PR Agency Logo">
         </div>
         
         <div class="container">
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html" aria-current="page">Home</a></li>
                     <li><a href="./about-us.html">About</a></li>
                     <li><a href="./services.html">Services</a></li>
                     <li><a href="./contact-us.html">Contact</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -32,33 +90,32 @@
         </div>
     </header>
 
-    <div class="fullscreen-menu">
+    <nav class="fullscreen-menu" aria-label="Mobile navigation">
         <div class="menu-items">
-            <a href="./index.html" class="menu-item">
+            <a href="./index.html" class="menu-item" aria-current="page">
                 <div class="curved-container">Home</div>
             </a>
             <a href="./about-us.html" class="menu-item">
                 <div class="curved-container">About</div>
             </a>
-                <a href="./services.html" class="menu-item">
+            <a href="./services.html" class="menu-item">
                 <div class="curved-container">Services</div>
             </a>
             <a href="./contact-us.html" class="menu-item">
                 <div class="curved-container">Contact</div>
             </a>
         </div>
-    </div>
+    </nav>
 
-    <div class="main-section">
+    <main>
         <section class="hero-section">
             <div class="content">
                 <div class="text-content">
-                    <h1>Brighten Your <span class="highlight"><span>Brand</span></span><br></h1>
-                    <h1>with Steller Sprangs</h1>
+                    <h1>Brighten Your <span class="highlight"><span>Brand</span></span><br>with Steller Sprangs</h1>
                     <p class="subtitle">Empowering Voices, Igniting Impact</p>
                     <p class="description">At Steller Sprangs, we craft strategies that amplify your story, build
                         lasting connections, and inspire action.</p>
-                    <a href="contact-us.html" class="get-quote-btn">Get a Quote</a>
+                    <a href="contact-us.html" class="get-quote-btn" aria-label="Request a quote">Get a Quote</a>
                 </div>
             </div>
         </section>
@@ -69,29 +126,33 @@
 </html>
 <!-- About Section -->
 <div class="full-containers">
-    <div class="about-section">
-        <div class="image-container">
-            <div class="image-circle image1" style="background-color: #6236FF;"><img src="contents/about_section/person1.png" alt="Person 1">
+    <section class="about-section" aria-labelledby="about-heading">
+        <div class="image-container" aria-label="Team members">
+            <div class="image-circle image1" style="background-color: #6236FF;">
+                <img src="contents/about_section/person1.png" alt="Team member 1">
             </div>
-            <div class="image-circle image2" style="background-color: #FFCE00;"><img src="contents/about_section/person2.png" alt="Person 2">
+            <div class="image-circle image2" style="background-color: #FFCE00;">
+                <img src="contents/about_section/person2.png" alt="Team member 2">
             </div>
-            <div class="image-circle image3" style="background-color: #ff8a05;"><img src="contents/about_section/person3.png" alt="Person 3">
+            <div class="image-circle image3" style="background-color: #ff8a05;">
+                <img src="contents/about_section/person3.png" alt="Team member 3">
             </div>
-            <div class="image-circle image4" style="background-color: #00d8e7;"><img src="contents/about_section/person4.png" alt="Person 4">
+            <div class="image-circle image4" style="background-color: #00d8e7;">
+                <img src="contents/about_section/person4.png" alt="Team member 4">
             </div>
-            <div class="image-circle image5" style="background-color: #ff8a05;"><img src="contents/about_section/person5.png" alt="Person 5">
+            <div class="image-circle image5" style="background-color: #ff8a05;">
+                <img src="contents/about_section/person5.png" alt="Team member 5">
             </div>
         </div>
         <div class="text-content">
-            <h2>About Steller Sprangs</h2>
-            <h1>Welcome to <span class="highlight-text">steller sprangs!</span></h1>
-            <p>We are architects of influence and storytellers of impact. Guided by our mission, “Empowering Voices,
-                Igniting Impact,” we harness authentic voices and strategic narratives to drive positive change and
+            <h2 id="about-heading">About Steller Sprangs</h2>
+            <h3>Welcome to <span class="highlight-text">steller sprangs!</span></h3>
+            <p>We are architects of influence and storytellers of impact. Guided by our mission, "Empowering Voices,
+                Igniting Impact," we harness authentic voices and strategic narratives to drive positive change and
                 elevate brands.</p>
-                <!-- <button class="know-more-button">Know more</button> -->
-            <button class="know-more-button"><a href="about-us.html" style="text-decoration: none; color: white;">Know more</a></button>
+            <a href="about-us.html" class="know-more-button" aria-label="Learn more about Steller Sprangs">Know more</a>
         </div>
-    </div>
+    </section>
 </div>
 
 <!-- Our Services Section -->
@@ -203,129 +264,128 @@
 </section>
 -->
 
-<section class="services-section">
-    <h2>OUR <span>SERVICES</span></h2>
+<section class="services-section" aria-labelledby="services-heading">
+    <h2 id="services-heading">OUR <span>SERVICES</span></h2>
     <div class="services-container">
         <!-- 1. PR Strategy -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
-                <img src="contents/services/digitalstrategy.png" alt="PR Strategy">
+                <img src="contents/services/digitalstrategy.png" alt="PR Strategy services illustration">
                 <div class="overlay"></div>
             </div>
             <h3>PR Strategy</h3>
-            <a href="./pr-strategy.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./pr-strategy.html" class="read-more-btn" aria-label="Learn more about PR Strategy">Read More</a>
+        </article>
 
         <!-- 2. Influencer Marketing -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/girl-social.jpg" alt="Influencer Marketing">
                 <div class="overlay"></div>
             </div>
             <h3>Influencer Marketing</h3>
-            <a href="./influencer-marketing.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./influencer-marketing.html" class="read-more-btn" aria-label="Learn more about Influencer Marketing">Read More</a>
+        </article>
 
         <!-- 3. Digital Marketing Strategy -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/laptop2.jpg" alt="Digital Marketing Strategy">
                 <div class="overlay"></div>
             </div>
             <h3>Digital Marketing Strategy</h3>
-            <a href="./digital-marketing.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./digital-marketing.html" class="read-more-btn" aria-label="Learn more about Digital Marketing Strategy">Read More</a>
+        </article>
 
         <!-- 4. E-commerce Reputation Management -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/working-place.jpg" alt="E-commerce Reputation Management">
                 <div class="overlay"></div>
             </div>
             <h3>E-commerce Reputation Management</h3>
-            <a href="./ecommerce-management.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./ecommerce-management.html" class="read-more-btn" aria-label="Learn more about E-commerce Reputation Management">Read More</a>
+        </article>
 
         <!-- 5. Press Release -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/office-work.jpeg" alt="Press Release">
                 <div class="overlay"></div>
             </div>
             <h3>Press Release</h3>
-            <a href="./press-release.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./press-release.html" class="read-more-btn" aria-label="Learn more about Press Release">Read More</a>
+        </article>
 
         <!-- 6. Reputation Management -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/reputation.png" alt="Reputation Management">
                 <div class="overlay"></div>
             </div>
             <h3>Reputation Management</h3>
-            <a href="./reputation-management.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./reputation-management.html" class="read-more-btn" aria-label="Learn more about Reputation Management">Read More</a>
+        </article>
 
         <!-- 7. Crisis Management -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/crisis.png" alt="Crisis Management">
                 <div class="overlay"></div>
             </div>
             <h3>Crisis Management</h3>
-            <a href="./crisis-management.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./crisis-management.html" class="read-more-btn" aria-label="Learn more about Crisis Management">Read More</a>
+        </article>
 
         <!-- 8. Website Management -->
-        <div class="service-box">
+        <article class="service-box">
             <div class="service-image">
                 <img src="contents/services/laptop.jpg" alt="Website Management">
                 <div class="overlay"></div>
             </div>
             <h3>Website Management</h3>
-            <a href="./website-management.html" class="read-more-btn">Read More</a>
-        </div>
+            <a href="./website-management.html" class="read-more-btn" aria-label="Learn more about Website Management">Read More</a>
+        </article>
     </div>
 </section>
 
 <!-- Why Choose Us Section -->
 
-<section class="why-choose-us">
-    <h2 class="animate-on-scroll">WHY <span>CHOOSE</span> US</h2>
+<section class="why-choose-us" aria-labelledby="why-choose-heading">
+    <h2 id="why-choose-heading" class="animate-on-scroll">WHY <span>CHOOSE</span> US</h2>
     <p class="animate-on-scroll">Six Reasons For People Choosing Us</p>
 
     <div class="features">
-        <div class="feature-box animate-feature">
-            <!-- <i class="icon">⭐</i> -->
-            <i class="fa-regular fa-star"></i> 
+        <article class="feature-box animate-feature">
+            <i class="fa-regular fa-star" aria-hidden="true"></i>
             <h3>Quality Service</h3>
             <p>We have been providing the finest of the best products since 2021.</p>
-        </div>
-        <div class="feature-box animate-feature">
+        </article>
+        <article class="feature-box animate-feature">
             <i class="fa-solid fa-award"></i>
             <h3>Accredited</h3>
             <p>PAN India, but quality has never been an issue.</p>
-        </div>
-        <div class="feature-box animate-feature">
+        </article>
+        <article class="feature-box animate-feature">
             <i class="fa-solid fa-briefcase"></i>
             <h3>Well Skilled Team</h3>
             <p>365 Days service guarantee, as well as wear and tare proof.</p>
-        </div>
-        <div class="feature-box animate-feature">
+        </article>
+        <article class="feature-box animate-feature">
             <i class="fa-regular fa-clock"></i>
             <h3>Time Availability</h3>
             <p>We have been providing the finest of the best products since 2021.</p>
-        </div>
-        <div class="feature-box animate-feature">
+        </article>
+        <article class="feature-box animate-feature">
             <i class="fa-solid fa-reply"></i>
             <h3>Quick Response</h3>
             <p>PAN India, but quality has never been an issue.</p>
-        </div>
-        <div class="feature-box animate-feature">
+        </article>
+        <article class="feature-box animate-feature">
             <i class="fa-solid fa-check"></i>
             <h3>On Time</h3>
             <p>365 Days service guarantee, as well as wear and tare proof.</p>
-        </div>
+        </article>
         
     </div>
 </section>
@@ -391,9 +451,9 @@
 
 <!-- Testimonials -->
 
-<section class="testimonials-section">
+<section class="testimonials-section" aria-labelledby="testimonials-heading">
     <div class="testimonials-header">
-        <h2>What Our <span>Clients</span> Say</h2>
+        <h2 id="testimonials-heading">What Our <span>Clients</span> Say</h2>
         <p class="subtitle">Real Stories from Our Valued Partners</p>
     </div>
 
@@ -471,29 +531,30 @@
 
 <footer class="footer">
     <div class="footer-content">
-        <div class="information">
+        <section class="information">
             <h3>INFORMATION</h3>
             <p>Steller Sprangs is your trusted partner in digital excellence. We specialize in innovative marketing solutions, web development, and brand strategy. Our commitment to quality and client success drives everything we do.</p>
             <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61556346120114"><img src="./contents/social/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="./contents/social/twitter.png" alt="Twitter"></a>
-                <a href="https://www.instagram.com/steller_sprangs?igsh=bXA3c292eGlhbzV4"><img src="./contents/social/instagram.png" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/company/steller-sprangs/"><img src="./contents/social/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/profile.php?id=61556346120114" aria-label="Visit our Facebook page"><img src="./contents/social/facebook.png" alt="Facebook"></a>
+                <a href="#" aria-label="Visit our Twitter page"><img src="./contents/social/twitter.png" alt="Twitter"></a>
+                <a href="https://www.instagram.com/steller_sprangs?igsh=bXA3c292eGlhbzV4" aria-label="Visit our Instagram page"><img src="./contents/social/instagram.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/steller-sprangs/" aria-label="Visit our LinkedIn page"><img src="./contents/social/linkedin.png" alt="LinkedIn"></a>
             </div>
-        </div>
-        <div class="contact-us">
+        </section>
+        <section class="contact-us">
             <h3>CONTACT US</h3>
-            <ul>
-                <li><i class="fas fa-phone"></i> +91 85578 64920</li>
-                <li><i class="fas fa-phone"></i> +91 95556 35596</li>
-                <li><i class="fas fa-envelope"></i> support.brand@stellersprangs.com</li>
-                <li><i class="fas fa-map-marker-alt"></i> 655A/4/936, Gayatri Puram, Kursi Road, Lucknow, UP 226022.
-                </li>
-            </ul>
-            <form class="email-form">
-                <input type="email" placeholder="Email Address">
+            <address>
+                <ul>
+                    <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+918557864920">+91 85578 64920</a></li>
+                    <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+919555635596">+91 95556 35596</a></li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:support.brand@stellersprangs.com">support.brand@stellersprangs.com</a></li>
+                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 655A/4/936, Gayatri Puram, Kursi Road, Lucknow, UP 226022.</li>
+                </ul>
+            </address>
+            <form class="email-form" aria-label="Newsletter signup">
+                <input type="email" placeholder="Email Address" aria-label="Enter your email address">
             </form>
-        </div>
+        </section>
     </div>
     <div class="footer-bottom">
         <p>ALL RIGHTS RESERVED – STELLER SPRANGS SOLUTIONS PVT LTD.</p>
