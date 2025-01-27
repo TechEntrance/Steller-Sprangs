@@ -56,6 +56,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
+            display: inline-block;
         }
 
         .status-new {
@@ -127,6 +128,7 @@
             display: flex;
             gap: 1rem;
             justify-content: flex-end;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -139,6 +141,7 @@
             align-items: center;
             gap: 0.5rem;
             transition: all 0.2s;
+            white-space: nowrap;
         }
 
         .btn i {
@@ -208,6 +211,158 @@
             color: #666;
             font-size: 0.875rem;
         }
+
+        /* Title styles */
+        .page-title-container {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #2196f3;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                margin: 1rem auto;
+                padding: 0 0.5rem;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.5rem;
+            }
+
+            .stat-card {
+                padding: 0.75rem;
+            }
+
+            .stat-value {
+                font-size: 1.25rem;
+            }
+
+            .filters-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .search-box,
+            .filter-select {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .action-buttons {
+                justify-content: stretch;
+                gap: 0.5rem;
+            }
+
+            .btn {
+                flex: 1;
+                padding: 0.5rem 1rem;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-card {
+                padding: 0.5rem;
+            }
+
+            .btn {
+                font-size: 0.8rem;
+                padding: 0.5rem;
+            }
+
+            .btn i {
+                margin-right: 0.25rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .page-title::after {
+                width: 40px;
+            }
+        }
+
+        /* Card view for mobile */
+        @media (max-width: 768px) {
+            .submissions-table {
+                display: block;
+                background: none;
+                box-shadow: none;
+            }
+
+            .submissions-table thead {
+                display: none;
+            }
+
+            .submissions-table tbody {
+                display: block;
+            }
+
+            .submissions-table tr {
+                display: block;
+                background: white;
+                margin-bottom: 1rem;
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .submissions-table td {
+                display: block;
+                padding: 0.5rem 0;
+                border: none;
+            }
+
+            .submissions-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                display: block;
+                color: #666;
+                font-size: 0.875rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .message-cell {
+                max-width: none;
+                white-space: normal;
+            }
+
+            .status-badge {
+                display: inline-block;
+                margin-top: 0.5rem;
+            }
+
+            .table-container {
+                max-height: none;
+                overflow: visible;
+                box-shadow: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -228,7 +383,9 @@
     </header>
 
     <div class="admin-container">
-        <h1>Contact Form Submissions</h1>
+        <div class="page-title-container">
+            <h1 class="page-title">Contact Form Submissions</h1>
+        </div>
         
         <div class="stats-row">
             <div class="stat-card">

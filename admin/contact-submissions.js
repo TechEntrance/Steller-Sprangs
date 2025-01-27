@@ -98,14 +98,14 @@ function createSubmissionsTable(submissions) {
                     .sort(([, a], [, b]) => new Date(b.timestamp) - new Date(a.timestamp))
                     .map(([key, data]) => `
                         <tr data-id="${key}">
-                            <td class="timestamp">${formatDate(data.timestamp)}</td>
-                            <td>${data.name}</td>
-                            <td>${data.email}</td>
-                            <td>${data.phone}</td>
-                            <td>${data.business}</td>
-                            <td>${data.location}</td>
-                            <td class="message-cell">${data.message}</td>
-                            <td>
+                            <td data-label="Timestamp" class="timestamp">${formatDate(data.timestamp)}</td>
+                            <td data-label="Name">${data.name}</td>
+                            <td data-label="Email">${data.email}</td>
+                            <td data-label="Phone">${data.phone}</td>
+                            <td data-label="Business">${data.business}</td>
+                            <td data-label="Location">${data.location}</td>
+                            <td data-label="Message" class="message-cell">${data.message}</td>
+                            <td data-label="Status">
                                 <span class="status-badge ${data.contacted ? 'status-contacted' : 'status-new'}"
                                       onclick="toggleStatus('${key}', ${data.contacted})">
                                     ${data.contacted ? 'Contacted' : 'New'}
@@ -120,14 +120,38 @@ function createSubmissionsTable(submissions) {
     return tableHTML;
 }
 
+// Function to update a single row's status
+function updateRowStatus(submissionId, newStatus) {
+    const row = document.querySelector(`tr[data-id="${submissionId}"]`);
+    if (row) {
+        const statusCell = row.querySelector('[data-label="Status"]');
+        if (statusCell) {
+            statusCell.innerHTML = `
+                <span class="status-badge ${newStatus ? 'status-contacted' : 'status-new'}"
+                      onclick="toggleStatus('${submissionId}', ${newStatus})">
+                    ${newStatus ? 'Contacted' : 'New'}
+                </span>
+            `;
+        }
+    }
+}
+
 // Function to toggle status
 function toggleStatus(submissionId, currentStatus) {
     const db = firebase.database();
     const submissionRef = db.ref(`contact_us/${submissionId}`);
+    const newStatus = !currentStatus;
 
-    submissionRef.update({ contacted: !currentStatus })
+    submissionRef.update({ contacted: newStatus })
         .then(() => {
-            loadSubmissions(); // Reload the table
+            // Update just the status in the UI
+            updateRowStatus(submissionId, newStatus);
+            
+            // Update the stats without refreshing
+            if (currentSubmissions) {
+                currentSubmissions[submissionId].contacted = newStatus;
+                updateStats(currentSubmissions);
+            }
         })
         .catch((error) => {
             console.error('Error updating submission:', error);
