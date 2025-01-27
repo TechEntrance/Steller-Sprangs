@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Submissions - Steller Sprangs Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .submissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .submissions-table th,
+        .submissions-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .submissions-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .submissions-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .timestamp {
+            color: #666;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .status-new {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .status-new:hover {
+            background: #bbdefb;
+        }
+
+        .status-contacted {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-contacted:hover {
+            background: #c8e6c9;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .no-submissions {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .header-actions {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .filters-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .search-box {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            min-width: 150px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn i {
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #2196f3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1976d2;
+        }
+
+        .btn-success {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #43a047;
+        }
+
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-cell {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .message-cell:hover {
+            white-space: normal;
+            overflow: visible;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2196f3;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../contents/steller_sprangs_logo2.png" alt="Steller Sprangs Logo">
+        </div>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about-us.html">About</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../contact-us.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <h1>Contact Form Submissions</h1>
+        
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="totalSubmissions">0</div>
+                <div class="stat-label">Total Submissions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="newSubmissions">0</div>
+                <div class="stat-label">New Submissions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="contactedSubmissions">0</div>
+                <div class="stat-label">Contacted</div>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <div class="filters-row">
+                <input type="text" class="search-box" id="searchBox" placeholder="Search submissions...">
+                <select class="filter-select" id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="new">New</option>
+                    <option value="contacted">Contacted</option>
+                </select>
+                <select class="filter-select" id="dateFilter">
+                    <option value="all">All Time</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-success" onclick="exportToExcel()">
+                    <i class="fas fa-file-excel"></i>
+                    Export to Excel
+                </button>
+                <button class="btn btn-primary" onclick="loadSubmissions()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh Data
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div id="submissionsContainer">
+                <div class="loading">Loading submissions...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <!-- XLSX library for Excel export -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="./contact-submissions.js"></script>
+</body>
+</html>
