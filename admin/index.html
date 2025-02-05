@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form Submissions - Steller Sprangs Admin</title>
+    <title>Admin Dashboard - Steller Sprangs</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -363,6 +363,39 @@
                 box-shadow: none;
             }
         }
+
+        /* Tab Styles */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            background: #f8f9fa;
+            color: #666;
+            transition: all 0.2s;
+        }
+
+        .tab-button.active {
+            background: #2196f3;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -384,54 +417,100 @@
 
     <div class="admin-container">
         <div class="page-title-container">
-            <h1 class="page-title">Contact Form Submissions</h1>
+            <h1 class="page-title">Admin Dashboard</h1>
         </div>
-        
-        <div class="stats-row">
-            <div class="stat-card">
-                <div class="stat-value" id="totalSubmissions">0</div>
-                <div class="stat-label">Total Submissions</div>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="contacts">Contact Form Submissions</button>
+            <button class="tab-button" data-tab="subscriptions">Subscription Emails</button>
+        </div>
+
+        <!-- Contact Form Submissions Tab -->
+        <div id="contacts-tab" class="tab-content active">
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalSubmissions">0</div>
+                    <div class="stat-label">Total Submissions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="newSubmissions">0</div>
+                    <div class="stat-label">New</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="contactedSubmissions">0</div>
+                    <div class="stat-label">Contacted</div>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="newSubmissions">0</div>
-                <div class="stat-label">New Submissions</div>
+
+            <div class="header-actions">
+                <div class="filters-row">
+                    <input type="text" id="searchBox" class="search-box" placeholder="Search submissions...">
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">All Status</option>
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                    </select>
+                    <select id="dateFilter" class="filter-select">
+                        <option value="all">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-success" onclick="exportToExcel()">
+                        <i class="fas fa-file-excel"></i>
+                        Export to Excel
+                    </button>
+                    <button class="btn btn-primary" onclick="loadSubmissions()">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh Data
+                    </button>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="contactedSubmissions">0</div>
-                <div class="stat-label">Contacted</div>
+
+            <div class="table-container">
+                <div id="submissionsContainer">
+                    <div class="loading">Loading submissions...</div>
+                </div>
             </div>
         </div>
 
-        <div class="header-actions">
-            <div class="filters-row">
-                <input type="text" class="search-box" id="searchBox" placeholder="Search submissions...">
-                <select class="filter-select" id="statusFilter">
-                    <option value="all">All Status</option>
-                    <option value="new">New</option>
-                    <option value="contacted">Contacted</option>
-                </select>
-                <select class="filter-select" id="dateFilter">
-                    <option value="all">All Time</option>
-                    <option value="today">Today</option>
-                    <option value="week">This Week</option>
-                    <option value="month">This Month</option>
-                </select>
+        <!-- Subscription Emails Tab -->
+        <div id="subscriptions-tab" class="tab-content">
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalSubscriptions">0</div>
+                    <div class="stat-label">Total Subscribers</div>
+                </div>
             </div>
-            <div class="action-buttons">
-                <button class="btn btn-success" onclick="exportToExcel()">
-                    <i class="fas fa-file-excel"></i>
-                    Export to Excel
-                </button>
-                <button class="btn btn-primary" onclick="loadSubmissions()">
-                    <i class="fas fa-sync-alt"></i>
-                    Refresh Data
-                </button>
-            </div>
-        </div>
 
-        <div class="table-container">
-            <div id="submissionsContainer">
-                <div class="loading">Loading submissions...</div>
+            <div class="header-actions">
+                <div class="filters-row">
+                    <input type="text" id="subscriptionSearchBox" class="search-box" placeholder="Search subscribers...">
+                    <select id="subscriptionDateFilter" class="filter-select">
+                        <option value="all">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-success" onclick="exportSubscribersToExcel()">
+                        <i class="fas fa-file-excel"></i>
+                        Export to Excel
+                    </button>
+                    <button class="btn btn-primary" onclick="loadSubscriptions()">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh Data
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div id="subscriptionsContainer">
+                    <div class="loading">Loading subscriptions...</div>
+                </div>
             </div>
         </div>
     </div>

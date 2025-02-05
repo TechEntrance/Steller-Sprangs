@@ -1,3 +1,7 @@
+// Global variables
+let currentSubmissions = null;
+let currentSubscriptions = null;
+
 // Function to format timestamp
 function formatDate(timestamp) {
     const date = new Date(timestamp);
@@ -10,9 +14,7 @@ function formatDate(timestamp) {
     });
 }
 
-let currentSubmissions = null;
-
-// Function to update statistics
+// Function to update contact form statistics
 function updateStats(submissions) {
     const stats = {
         total: 0,
@@ -34,6 +36,12 @@ function updateStats(submissions) {
     document.getElementById('totalSubmissions').textContent = stats.total;
     document.getElementById('newSubmissions').textContent = stats.new;
     document.getElementById('contactedSubmissions').textContent = stats.contacted;
+}
+
+// Function to update subscription statistics
+function updateSubscriptionStats(subscriptions) {
+    const total = subscriptions ? Object.keys(subscriptions).length : 0;
+    document.getElementById('totalSubscriptions').textContent = total;
 }
 
 // Function to filter submissions
@@ -66,6 +74,32 @@ function filterSubmissions(submissions) {
             (dateFilter === 'month' && isThisMonth);
 
         return matchesSearch && matchesStatus && matchesDate;
+    });
+}
+
+// Function to filter subscriptions
+function filterSubscriptions(subscriptions) {
+    if (!subscriptions) return null;
+
+    const searchTerm = document.getElementById('subscriptionSearchBox').value.toLowerCase();
+    const dateFilter = document.getElementById('subscriptionDateFilter').value;
+
+    return Object.entries(subscriptions).filter(([key, data]) => {
+        const matchesSearch = data.email.toLowerCase().includes(searchTerm);
+
+        const submissionDate = new Date(data.timestamp);
+        const now = new Date();
+        const isToday = submissionDate.toDateString() === now.toDateString();
+        const isThisWeek = submissionDate > new Date(now - 7 * 24 * 60 * 60 * 1000);
+        const isThisMonth = submissionDate.getMonth() === now.getMonth() && 
+                          submissionDate.getFullYear() === now.getFullYear();
+
+        const matchesDate = dateFilter === 'all' ||
+            (dateFilter === 'today' && isToday) ||
+            (dateFilter === 'week' && isThisWeek) ||
+            (dateFilter === 'month' && isThisMonth);
+
+        return matchesSearch && matchesDate;
     });
 }
 
@@ -111,6 +145,40 @@ function createSubmissionsTable(submissions) {
                                     ${data.contacted ? 'Contacted' : 'New'}
                                 </span>
                             </td>
+                        </tr>
+                    `).join('')}
+            </tbody>
+        </table>
+    `;
+
+    return tableHTML;
+}
+
+// Function to create the subscriptions table
+function createSubscriptionsTable(subscriptions) {
+    if (!subscriptions || subscriptions.length === 0) {
+        return `
+            <div class="no-submissions">
+                No subscriptions found.
+            </div>
+        `;
+    }
+
+    const tableHTML = `
+        <table class="submissions-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${subscriptions
+                    .sort(([, a], [, b]) => new Date(b.timestamp) - new Date(a.timestamp))
+                    .map(([key, data]) => `
+                        <tr data-id="${key}">
+                            <td data-label="Timestamp" class="timestamp">${formatDate(data.timestamp)}</td>
+                            <td data-label="Email">${data.email}</td>
                         </tr>
                     `).join('')}
             </tbody>
@@ -184,6 +252,31 @@ function loadSubmissions() {
         });
 }
 
+// Function to load subscriptions from Firebase
+function loadSubscriptions() {
+    const subscriptionsContainer = document.getElementById('subscriptionsContainer');
+    subscriptionsContainer.innerHTML = '<div class="loading">Loading subscriptions...</div>';
+
+    const db = firebase.database();
+    const subscriptionsRef = db.ref('newsletter_subscribers');
+
+    subscriptionsRef.once('value')
+        .then((snapshot) => {
+            currentSubscriptions = snapshot.val();
+            const filteredSubscriptions = filterSubscriptions(currentSubscriptions);
+            subscriptionsContainer.innerHTML = createSubscriptionsTable(filteredSubscriptions);
+            updateSubscriptionStats(currentSubscriptions);
+        })
+        .catch((error) => {
+            console.error('Error loading subscriptions:', error);
+            subscriptionsContainer.innerHTML = `
+                <div class="error">
+                    Error loading subscriptions. Please try again.
+                </div>
+            `;
+        });
+}
+
 // Function to export data to Excel
 function exportToExcel() {
     if (!currentSubmissions) {
@@ -220,13 +313,62 @@ function exportToExcel() {
     XLSX.writeFile(workbook, filename);
 }
 
+// Function to export subscriptions to Excel
+function exportSubscribersToExcel() {
+    if (!currentSubscriptions) {
+        alert('No data to export');
+        return;
+    }
+
+    const filteredSubscriptions = filterSubscriptions(currentSubscriptions);
+    if (!filteredSubscriptions || filteredSubscriptions.length === 0) {
+        alert('No data to export after applying filters');
+        return;
+    }
+
+    const worksheet = XLSX.utils.json_to_sheet(
+        filteredSubscriptions.map(([, data]) => ({
+            Timestamp: formatDate(data.timestamp),
+            Email: data.email
+        }))
+    );
+
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Subscriptions');
+
+    const date = new Date().toISOString().split('T')[0];
+    const filename = `email_subscriptions_${date}.xlsx`;
+
+    XLSX.writeFile(workbook, filename);
+}
+
+// Tab switching functionality
+function setupTabs() {
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('data-tab');
+
+            // Update active states
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            tab.classList.add('active');
+            document.getElementById(`${targetId}-tab`).classList.add('active');
+        });
+    });
+}
+
 // Setup event listeners
 function setupEventListeners() {
+    // Contact form filters
     const searchBox = document.getElementById('searchBox');
     const statusFilter = document.getElementById('statusFilter');
     const dateFilter = document.getElementById('dateFilter');
 
-    const handleFilterChange = () => {
+    const handleContactFilterChange = () => {
         if (currentSubmissions) {
             const filteredSubmissions = filterSubmissions(currentSubmissions);
             document.getElementById('submissionsContainer').innerHTML = 
@@ -234,13 +376,39 @@ function setupEventListeners() {
         }
     };
 
-    searchBox.addEventListener('input', handleFilterChange);
-    statusFilter.addEventListener('change', handleFilterChange);
-    dateFilter.addEventListener('change', handleFilterChange);
+    searchBox.addEventListener('input', handleContactFilterChange);
+    statusFilter.addEventListener('change', handleContactFilterChange);
+    dateFilter.addEventListener('change', handleContactFilterChange);
+
+    // Subscription filters
+    const subscriptionSearchBox = document.getElementById('subscriptionSearchBox');
+    const subscriptionDateFilter = document.getElementById('subscriptionDateFilter');
+
+    const handleSubscriptionFilterChange = () => {
+        if (currentSubscriptions) {
+            const filteredSubscriptions = filterSubscriptions(currentSubscriptions);
+            document.getElementById('subscriptionsContainer').innerHTML = 
+                createSubscriptionsTable(filteredSubscriptions);
+        }
+    };
+
+    subscriptionSearchBox.addEventListener('input', handleSubscriptionFilterChange);
+    subscriptionDateFilter.addEventListener('change', handleSubscriptionFilterChange);
 }
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    loadSubmissions();
+    // Initialize Firebase
+    const firebaseConfig = {
+        // Your Firebase config here
+    };
+    
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    setupTabs();
     setupEventListeners();
+    loadSubmissions();
+    loadSubscriptions();
 });
