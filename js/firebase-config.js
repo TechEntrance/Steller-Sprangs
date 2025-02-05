@@ -77,10 +77,53 @@ function submitForm(event) {
     }
 }
 
-// Add form event listener when DOM is loaded
+// Email subscription handler
+function handleSubscription(event) {
+    event.preventDefault();
+    console.log("Subscription started");
+    
+    const emailInput = document.getElementById('subscribeEmail');
+    const email = emailInput.value.trim();
+    
+    if (!email) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    try {
+        const db = firebase.database();
+        const subscribersRef = db.ref('newsletter_subscribers');
+        
+        // Add new subscriber with timestamp
+        subscribersRef.push({
+            email: email,
+            timestamp: new Date().toISOString()
+        })
+        .then(() => {
+            alert('Thank you for subscribing!');
+            emailInput.value = ''; // Clear the input
+        })
+        .catch((error) => {
+            console.error("Error saving subscription:", error);
+            alert('Sorry, there was an error. Please try again later.');
+        });
+    } catch (error) {
+        console.error("Subscription error:", error);
+        alert('Sorry, there was an error. Please try again later.');
+    }
+}
+
+// Add event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', submitForm);
+    // Contact form initialization
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', submitForm);
+    }
+    
+    // Subscribe form initialization
+    const subscribeForm = document.getElementById('subscribeForm');
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', handleSubscription);
     }
 });

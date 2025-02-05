@@ -1090,14 +1090,39 @@ footer {
     margin-right: 10px;
 }
 
-.email-form input {
-    padding: 10px;
-    border: none;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
+.email-form {
+    display: flex;
+    gap: 10px;
     margin-top: 20px;
+}
+
+.email-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: transparent;
+    color: #fff;
     border-radius: 5px;
+    font-size: 14px;
+}
+
+.email-form input::placeholder {
+    color: #999;
+}
+
+.email-form button {
+    padding: 8px 15px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.email-form button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom {
@@ -1638,10 +1663,13 @@ footer {
     background-color: white; /* color when menu is open */
 }
 
-.contact-us ul li a {
-    color: #fff;
+.contact-us ul li a,
+.contact-us ul li a:link,
+.contact-us ul li a:visited,
+.contact-us ul li a:hover,
+.contact-us ul li a:active {
+    color: white !important;
     text-decoration: none;
-    transition: opacity 0.3s ease;
 }
 
 .contact-us ul li a:hover {
@@ -1651,5 +1679,3 @@ footer {
 .contact-us ul li a:visited {
     color: #fff;
 }
-
-

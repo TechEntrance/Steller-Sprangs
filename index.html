@@ -121,9 +121,7 @@
         </section>
         
     </div>
-</body>
-
-</html>
+</main>
 <!-- About Section -->
 <div class="full-containers">
     <section class="about-section" aria-labelledby="about-heading">
@@ -551,8 +549,9 @@
                     <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> 655A/4/936, Gayatri Puram, Kursi Road, Lucknow, UP 226022.</li>
                 </ul>
             </address>
-            <form class="email-form" aria-label="Newsletter signup">
-                <input type="email" placeholder="Email Address" aria-label="Enter your email address">
+            <form class="email-form" id="subscribeForm" aria-label="Newsletter signup">
+                <input type="email" id="subscribeEmail" placeholder="Email Address" aria-label="Enter your email address" required>
+                <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
             </form>
         </section>
     </div>
@@ -565,8 +564,11 @@
     </div>
 </footer>
 
-<script src="./js/script.js"></script>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="./js/firebase-config.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
-
