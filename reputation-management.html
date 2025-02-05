@@ -177,9 +177,10 @@
                     <li><i class="fas fa-map-marker-alt"></i> 655A/4/936, Gayatri Puram, Kursi Road, Lucknow, UP 226022.
                     </li>
                 </ul>
-                <form class="email-form">
-                    <input type="email" placeholder="Email Address">
-                </form>
+            <form class="email-form" id="subscribeForm" aria-label="Newsletter signup">
+                <input type="email" id="subscribeEmail" placeholder="Email Address" aria-label="Enter your email address" required>
+                <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+            </form>
             </div>
         </div>
         <div class="footer-bottom">
@@ -192,6 +193,9 @@
     </footer>
     
 
-    <script src="./js/script.js"></script>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="./js/firebase-config.js"></script>    <script src="./js/script.js"></script>
 </body>
 </html>
