@@ -347,16 +347,38 @@ function setupTabs() {
     const tabs = document.querySelectorAll('.tab-button');
     const contents = document.querySelectorAll('.tab-content');
 
+    console.log('Setting up tabs:', tabs.length, 'buttons found');
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const targetId = tab.getAttribute('data-tab');
+            console.log('Tab clicked:', targetId);
 
             // Update active states
             tabs.forEach(t => t.classList.remove('active'));
             contents.forEach(c => c.classList.remove('active'));
 
             tab.classList.add('active');
-            document.getElementById(`${targetId}-tab`).classList.add('active');
+            
+            const targetContent = document.getElementById(`${targetId}-tab`);
+            if (targetContent) {
+                console.log('Switching to tab content:', targetId);
+                targetContent.classList.add('active');
+                
+                // Reload data when switching tabs
+                if (targetId === 'contacts') {
+                    console.log('Loading contacts data');
+                    loadSubmissions();
+                } else if (targetId === 'subscriptions') {
+                    console.log('Loading subscriptions data');
+                    loadSubscriptions();
+                }
+            } else {
+                console.error('Target content not found:', `${targetId}-tab`);
+                console.log('Available content elements:', 
+                    Array.from(contents).map(c => c.id).join(', ')
+                );
+            }
         });
     });
 }
